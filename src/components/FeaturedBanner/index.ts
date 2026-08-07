@@ -1,0 +1,1 @@
+export { createFeaturedBannerElement } from './FeaturedBanner';

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
+  <defs>
+    <linearGradient id="cabinet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b2118"/>
+      <stop offset="100%" stop-color="#17120d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#f7c869" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#eab54d" stop-opacity="0.15"/>
+    </radialGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#221a13"/>
+      <stop offset="100%" stop-color="#2b2118"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="480" height="320" fill="url(#cabinet)"/>
+
+  <!-- Backglass iluminado -->
+  <rect x="100" y="28" width="280" height="96" rx="10" fill="url(#glow)"/>
+  <rect x="100" y="28" width="280" height="96" rx="10" fill="none" stroke="#eab54d" stroke-width="2"/>
+  <circle cx="240" cy="76" r="30" fill="#17120d" opacity="0.35"/>
+
+  <!-- Playfield -->
+  <rect x="70" y="150" width="340" height="130" rx="8" fill="url(#field)" stroke="#3a2c1e" stroke-width="2"/>
+  <g stroke="#3a2c1e" stroke-width="1">
+    <line x1="70" y1="180" x2="410" y2="180"/>
+    <line x1="70" y1="210" x2="410" y2="210"/>
+    <line x1="70" y1="240" x2="410" y2="240"/>
+  </g>
+
+  <!-- Bola -->
+  <circle cx="300" cy="200" r="12" fill="#b8a88f"/>
+  <circle cx="296" cy="196" r="4" fill="#f3ead9" opacity="0.8"/>
+
+  <!-- Flippers -->
+  <path d="M150 262 L200 250 L200 262 Z" fill="#a879f0"/>
+  <path d="M330 262 L280 250 L280 262 Z" fill="#35c9b0"/>
+
+  <!-- Patas -->
+  <rect x="100" y="280" width="14" height="30" fill="#3a2c1e"/>
+  <rect x="366" y="280" width="14" height="30" fill="#3a2c1e"/>
+</svg>

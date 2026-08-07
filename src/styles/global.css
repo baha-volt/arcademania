@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Unbounded', system-ui, sans-serif;
+  --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --font-data: 'Space Mono', ui-monospace, monospace;
+
+  /* Base cálida tipo taller/gabinete de madera, no negro puro */
+  --color-arcade-base: #17120d;
+  --color-arcade-surface: #221a13;
+  --color-arcade-surface-alt: #2b2118;
+  --color-arcade-line: #3a2c1e;
+
+  --color-arcade-cream: #f3ead9;
+  --color-arcade-muted: #b8a88f;
+
+  /* Acento principal: ámbar de foco de marquesina */
+  --color-arcade-gold: #eab54d;
+  --color-arcade-gold-bright: #f7c869;
+
+  /* Acentos por nivel de rareza (paleta de backglass) */
+  --color-arcade-violet: #a879f0;
+  --color-arcade-teal: #35c9b0;
+  --color-arcade-steel: #93877a;
+  --color-arcade-danger: #e5626a;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-arcade-base);
+  color: var(--color-arcade-cream);
+  min-height: 100vh;
+  /* Textura sutil de foco de escenario cálido sobre madera oscura */
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(234, 181, 77, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(168, 121, 240, 0.08) 0%, transparent 35%);
+  background-attachment: fixed;
+}
+
+/* Sello circular de rareza: el elemento distintivo de la tarjeta */
+.rarity-seal {
+  font-family: var(--font-data);
+  border: 2px double currentColor;
+  border-radius: 9999px;
+  transform: rotate(-8deg);
+}
