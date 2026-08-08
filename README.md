@@ -2,19 +2,27 @@
 
 Frontend del proyecto integrador **ArcadeMania**, una interfaz de gestión para una colección de máquinas de pinball vintage y de colección. Permite visualizar el catálogo completo, consultar el detalle de cada pieza y registrar nuevas máquinas contra un backend REST real en producción.
 
+**🔗 Versión de producción:** [https://arcademaniacs.netlify.app](https://arcademaniacs.netlify.app)
+
 ---
 
 ## Tecnologías
 
-| Capa          | Tecnología                                   |
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bun](https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white)
+![Lucide](https://img.shields.io/badge/Lucide_Icons-FF6C37?style=for-the-badge)
+![SweetAlert2](https://img.shields.io/badge/SweetAlert2-8A2BE2?style=for-the-badge)
+
+| Capa          | Detalle                                      |
 |---------------|----------------------------------------------|
-| Lenguaje      | TypeScript Vanilla (strict, ES2023, sin `any`) |
-| Bundler       | Vite 8                                       |
-| Estilos       | Tailwind CSS 4 (tema personalizado)          |
-| Iconos        | Lucide (nodos SVG reales, sin `innerHTML`)   |
-| Alertas       | SweetAlert2 11 (wrapper temático)            |
-| Testing       | Vitest 3 + jsdom                             |
-| Runtime       | Bun                                          |
+| **Lenguaje**  | TypeScript Vanilla (strict, ES2023, sin `any`) |
+| **Bundler**   | Vite 8                                       |
+| **Estilos**   | Tailwind CSS 4 (tema personalizado)          |
+| **Iconos**    | Lucide (nodos SVG reales, sin `innerHTML`)   |
+| **Alertas**   | SweetAlert2 11 (wrapper temático)            |
+| **Runtime**   | Bun                                          |
 
 ---
 
@@ -35,22 +43,16 @@ bun run dev
 
 # Verificación de tipos TypeScript + build de producción
 bun run build
-
-# Ejecutar la suite de tests
-bun run test
-
-# Reporte de cobertura de código
-bun run coverage
 ```
 
 ---
 
 ## Estructura del proyecto
 
-```
-arcademania-frontend/
+```text
+arcademania/
 ├── index.html                    # Punto de entrada HTML
-├── vite.config.ts                # Config de Vite + Vitest + Tailwind
+├── vite.config.ts                # Config de Vite + Tailwind
 ├── tsconfig.json                 # TypeScript estricto (noImplicitAny: true)
 ├── public/
 │   ├── favicon.svg               # Ícono propio (pinball)
@@ -79,11 +81,6 @@ arcademania-frontend/
     │   └── pinballBoard.view.ts  # Orquestador: carga async, CRUD, estados UI
     └── styles/
         └── global.css            # Tailwind + tema custom (fuentes, paleta)
-tests/
-    ├── config/                   # Tests del modelo y enum
-    ├── utils/                    # Tests de formateadores
-    ├── services/                 # Tests del servicio (fetch mockeado)
-    └── components/               # Tests de componentes (jsdom)
 ```
 
 ---
@@ -107,3 +104,69 @@ Base URL: `https://www.bahatech.cl/arcademania/api/v1/pinballs`
 **Pilar 2 – Manejo del DOM:** Todos los componentes construyen el árbol con `createElement` y `appendChild`, sin `innerHTML`. El formulario aplica `event.preventDefault()` como primera instrucción, lee inputs con aserciones especializadas (`as HTMLInputElement`) y valida nulidad antes de acceder a `.value`.
 
 **Pilar 3 – Arquitectura asíncrona:** Carga con `async/await` envuelta en `try/catch`. Feedback visual de carga (skeletons) antes de la petición. Validación de `response.ok` para interceptar errores HTTP 4xx/5xx. Mensajes de error descriptivos en pantalla con botón de reintento.
+
+---
+
+## 🎲 Datos de ejemplo/muestra para Poblar el Catálogo
+
+Si necesitas agregar máquinas desde la interfaz, aquí tienes enlaces e información preparada para copiar y pegar directamente en el formulario.
+
+### URLs de Imágenes Disponibles
+
+*   `https://www.bahatech.cl/pinball/castlequest.svg`
+*   `https://www.bahatech.cl/pinball/galaxy.svg`
+*   `https://www.bahatech.cl/pinball/hauntedmadness.svg`
+*   `https://www.bahatech.cl/pinball/neonrush.svg`
+*   `https://www.bahatech.cl/pinball/radicalflippers.svg`
+
+### Objetos de Carga Rápida
+
+Los siguientes objetos están mapeados exactamente con los campos del formulario de la aplicación:
+
+**1. Haunted Madness**
+*   **MODELO *:** Haunted Madness
+*   **FABRICANTE *:** Spooky Pinball
+*   **AÑO DE FABRICACIÓN *:** 2018
+*   **NIVEL DE RAREZA:** De Colección
+*   **UNIDADES PRODUCIDAS:** 1200
+*   **COSTO RESTAURACIÓN (USD):** 1120.50
+*   **RATING DE CONDICIÓN (1.0 - 5.0):** 4.2
+*   **URL DE IMAGEN:** `https://www.bahatech.cl/pinball/hauntedmadness.svg`
+*   **Totalmente funcional:** ☑ (Marcar casilla)
+*   **Tiene Multiball:** ☑ (Marcar casilla)
+
+**2. Neon Rush 2077**
+*   **MODELO *:** Neon Rush 2077
+*   **FABRICANTE *:** Cyber Arcade Co.
+*   **AÑO DE FABRICACIÓN *:** 2026
+*   **NIVEL DE RAREZA:** Edición Limitada
+*   **UNIDADES PRODUCIDAS:** 500
+*   **COSTO RESTAURACIÓN (USD):** 2450
+*   **RATING DE CONDICIÓN (1.0 - 5.0):** 5.0
+*   **URL DE IMAGEN:** `https://www.bahatech.cl/pinball/neonrush.svg`
+*   **Totalmente funcional:** ☑ (Marcar casilla)
+*   **Tiene Multiball:** ☑ (Marcar casilla)
+
+**3. Radical Flippers**
+*   **MODELO *:** Radical Flippers
+*   **FABRICANTE *:** Bally / Midway
+*   **AÑO DE FABRICACIÓN *:** 1988
+*   **NIVEL DE RAREZA:** Clásica
+*   **UNIDADES PRODUCIDAS:** 6500
+*   **COSTO RESTAURACIÓN (USD):** 980
+*   **RATING DE CONDICIÓN (1.0 - 5.0):** 3.9
+*   **URL DE IMAGEN:** `https://www.bahatech.cl/pinball/radicalflippers.svg`
+*   **Totalmente funcional:** ☑ (Marcar casilla)
+*   **Tiene Multiball:** ☐ (Dejar sin marcar)
+
+**4. Space Cadet (Prueba sin opcionales)**
+*   **MODELO *:** Space Cadet
+*   **FABRICANTE *:** Maxis
+*   **AÑO DE FABRICACIÓN *:** 1995
+*   **NIVEL DE RAREZA:** Común *(o el valor por defecto)*
+*   **UNIDADES PRODUCIDAS:** *(Dejar en blanco)*
+*   **COSTO RESTAURACIÓN (USD):** *(Dejar en blanco)*
+*   **RATING DE CONDICIÓN (1.0 - 5.0):** *(Dejar en blanco)*
+*   **URL DE IMAGEN:** *(Dejar en blanco)*
+*   **Totalmente funcional:** ☐ (Dejar sin marcar)
+*   **Tiene Multiball:** ☐ (Dejar sin marcar)
