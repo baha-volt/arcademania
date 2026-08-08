@@ -15,7 +15,7 @@ export interface PinballMachine {
   releaseYear: number;
   unitsProduced?: number;
   restorationCostUsd?: number;
-  conditionRating?: number; // Escala de 1.0 a 5.0
+  conditionRating?: number;
   isFullyFunctional: boolean;
   hasMultiball: boolean;
 }

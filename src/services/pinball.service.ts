@@ -28,6 +28,7 @@ function toOptionalNumber(value: unknown): number | undefined {
   return Number.isFinite(num) ? num : undefined;
 }
 
+// Maps raw API response to a typed PinballMachine, using unknown instead of any for strict type safety
 function mapToPinballMachine(raw: RawPinballMachine): PinballMachine {
   return {
     id: toOptionalNumber(raw.id) ?? 0,
@@ -69,6 +70,7 @@ export class PinballService {
 
     const response = await fetch(this.BASE_URL);
 
+    // 204 means the collection is empty (no body), must be handled before calling response.json()
     if (response.status === 204) {
       return [];
     }

@@ -188,6 +188,7 @@ export function createPinballFormElement(
 
   form.addEventListener('submit', (event: Event) => {
 
+    // Prevent native form submission to avoid page reload before processing input data
     event.preventDefault();
     hideError();
 
@@ -200,6 +201,7 @@ export function createPinballFormElement(
     const ratingInput = document.getElementById('input-rating') as HTMLInputElement | null;
     const imgInput = document.getElementById('input-imagen') as HTMLInputElement | null;
 
+    //Null guard for field components
     if (modelInput === null || mfgInput === null || yearInput === null || raritySelect === null) {
       showError('Error interno: no se encontraron los campos del formulario.');
       return;

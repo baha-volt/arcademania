@@ -14,6 +14,7 @@ export class PinballBoardView {
 
   constructor() {
 
+    // Show skeleton UI immediately before the network request to provide continuous visual feedback
     this.catalogContainer = document.getElementById('contenedor-catalogo');
     this.formContainer = document.getElementById('contenedor-formulario');
   }
@@ -25,6 +26,7 @@ export class PinballBoardView {
   }
 
   private mountForm(): void {
+    //Null guard provided
     if (this.formContainer === null) return;
 
     const formElement = createPinballFormElement((payload: NewPinballMachinePayload) => {
@@ -36,6 +38,7 @@ export class PinballBoardView {
 
 
   public async loadCatalog(): Promise<void> {
+    //Null guard privided on laod
     if (this.catalogContainer === null) return;
 
     this.catalogContainer.replaceChildren(createLoadingSkeletonElement(6));

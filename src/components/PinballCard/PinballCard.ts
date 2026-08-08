@@ -54,6 +54,7 @@ export function createPinballCardElement(
   img.alt = machine.modelName;
   img.className =
     'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300';
+  // onerror must be assigned before src to ensure the handler is ready when the browser fires the event
   img.onerror = () => {
     img.src = '/images/pinball-placeholder.svg';
   };
